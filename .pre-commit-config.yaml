@@ -22,6 +22,7 @@ repos:
       - id: detect-private-key
       - id: end-of-file-fixer
       - id: pretty-format-json
+        exclude: '^data/'
         args: ['--autofix']
       - id: requirements-txt-fixer
       - id: trailing-whitespace
