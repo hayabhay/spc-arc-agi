@@ -1,0 +1,14 @@
+services:
+  ui:
+    build:
+      context: .
+      dockerfile: ./compose/production/Dockerfile
+    image: $IMAGE_NAME
+    container_name: spc-arcagi-ui
+    environment:
+      - MODE=prod
+    env_file:
+      - ./.env
+    command: /start
+    ports:
+      - '8501:8501'

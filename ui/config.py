@@ -10,7 +10,7 @@ TEMP_DIR = Path(tempfile.gettempdir())
 LOGS_DIR = PROJECT_DIR / "logs"
 # Data paths
 DATA_DIR = PROJECT_DIR / "data"
-ORIG_DATASET = DATA_DIR / "orig"
+ORIG_DATASET = DATA_DIR / "original"
 
 # Load filenames of evaluation & training data from original set
 EVAL_FPATHS = list((ORIG_DATASET / "evaluation").rglob("*.json"))
@@ -18,12 +18,11 @@ EVAL_TASKIDS = set([fpath.name.split(".")[0] for fpath in EVAL_FPATHS])
 TRAIN_FPATHS = list((ORIG_DATASET / "training").rglob("*.json"))
 TRAIN_TASKIDS = set([fpath.name.split(".")[0] for fpath in TRAIN_FPATHS])
 
+print(TRAIN_FPATHS[:10])
+
 # Environment variables
 # ---------------------
 DEV = os.environ.get("DEV", False)
-SERVER_LOC = os.environ.get("SERVER_LOC", "http://localhost:8000")
-
-print(SERVER_LOC)
 
 # Common page configurations
 # --------------------------
@@ -53,5 +52,4 @@ def init_session(session_state, reset: bool = False):
     """Site wide function to intialize session state variables if they don't exist."""
     # Session states
     # --------------------------------
-    if "server_loc" not in session_state or reset:
-        session_state.SERVER_LOC = SERVER_LOC
+    pass

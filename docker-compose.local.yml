@@ -1,0 +1,14 @@
+services:
+  ui:
+    build:
+      context: .
+      dockerfile: ./compose/local/Dockerfile
+    image: spc-arcagi-uidev
+    container_name: spc-arcagi-uidev
+    env_file:
+      - ./.env
+    command: /start
+    ports:
+      - '8501:8501'
+    volumes:
+      - ./data:/data

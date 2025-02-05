@@ -1,0 +1,7 @@
+#!/bin/bash
+
+set -o errexit
+set -o pipefail
+set -o nounset
+
+exec streamlit run 01_🏠_Home.py --server.port 8501
